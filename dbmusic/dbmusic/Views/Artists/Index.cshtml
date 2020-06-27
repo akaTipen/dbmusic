@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@Html.Hidden("hf")
+@section Scripts {
+    <script src="~/js/Artists.js"></script>
+}
+
+<div class="row">
+    <div class="action-button">
+        <button class="btn btn-primary btn-lg btn-responsive" onclick="addData()"><i class="oi-input oi-plus"></i> Add New</button>
+    </div>
+</div>
+<br>
+
+<div class="row">
+    <table id="tblArtist" class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Num.</th>
+                <th>Album Name</th>
+                <th>Artist Name</th>
+                <th>Date Release</th>
+                <th>Sample Audio</th>
+                <th>Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+<div id="modalPreview" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div id="modalDialogPreview" class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitlePreview"></h5>
+                <button type="button" class="close" data-dismiss="modal" onclick="stop()">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color:white">
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Artist Name</label>
+                    <p>:</p>
+                    <div class="col-sm-8">
+                        <p id="labelArtistName"></p>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Album Name</label>
+                    <p>:</p>
+                    <div class="col-sm-8">
+                        <p id="labelAlbum"></p>
+                    </div>
+                </div>
+                <img id="labelImg" width="300" height="300" style="margin: 0 auto; display: block;">
+                <br>
+                <audio id="audio" controls style="margin: 0 auto; display: block;">
+                    <source id="source" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalArtist" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div id="modalDialogArtist" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitleArtist"></h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="ArtistForm" name="Artist" action="#">
+                    <div class="form-input">
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Artist Name <font class="f-red">*</font></label>
+                            <div class="col-sm-8">
+                                <input id="txtArtistName" class="form-control form-control-sm" placeholder="Please fill Artist Name" required="" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Album Name <font class="f-red">*</font></label>
+                            <div class="col-sm-8">
+                                <input id="txtAlbumName" class="form-control form-control-sm" placeholder="Please fill Album Name" required="" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Image Url</label>
+                            <div class="col-sm-8">
+                                <input id="txtImageUrl" class="form-control form-control-sm" placeholder="Please fill Image Url" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Release Date <font class="f-red">*</font></label>
+                            <div class="col-sm-8">
+                                <input id="txtReleaseDate" class="form-control form-control-sm" placeholder="Please fill Release Date" required="" autocomplete="off" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Price <font class="f-red">*</font></label>
+                            <div class="col-sm-8">
+                                <input id="txtPrice" class="form-control form-control-sm" placeholder="Please fill Price" required="" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label">Sample Url</label>
+                            <div class="col-sm-8">
+                                <input id="txtSampleUrl" class="form-control form-control-sm" placeholder="Please fill Sample Url" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-dark btn-sm btn-responsive btnSave" type="submit"><i class="oi-input oi-circle-check"></i> Save</button>
+                        <button class="btn btn-danger btn-sm btn-responsive" data-dismiss="modal"><i class="oi-input oi-circle-x"></i> Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
