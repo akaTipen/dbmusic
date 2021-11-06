@@ -42,8 +42,6 @@ namespace dbmusic.Controllers
         }
 
         // PUT: api/APIArtists/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutArtists(int id, Artists artists)
         {
@@ -74,8 +72,6 @@ namespace dbmusic.Controllers
         }
 
         // POST: api/APIArtists
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<Artists>> PostArtists(Artists artists)
         {
